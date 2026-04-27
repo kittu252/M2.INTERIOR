@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M2 Interior | Transforming Spaces</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f7f7f6',
+                            100: '#eaeaeb',
+                            500: '#8c7a6b', // Earthy/Gold tone
+                            800: '#2c2c2c',
+                            900: '#1a1a1a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles for Slider & Utilities */
+        .slider-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Floating Buttons */
+        .floating-action-btn {
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .floating-action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body class="font-sans text-brand-800 bg-brand-50 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Header / Navigation -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
+        <div class="absolute inset-0 bg-white/90 backdrop-blur-md shadow-sm" id="nav-bg"></div>
+        <div class="container mx-auto px-6 py-4 relative z-10 flex justify-between items-center">
+            <a href="#" class="text-2xl font-serif font-bold text-brand-900 tracking-wider">
+                M2<span class="text-brand-500">.</span>INTERIOR
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-sm font-medium hover:text-brand-500 transition-colors">Home</a>
+                <a href="#about" class="text-sm font-medium hover:text-brand-500 transition-colors">About Us</a>
+                <a href="#gallery" class="text-sm font-medium hover:text-brand-500 transition-colors">Gallery</a>
+                <a href="#contact" class="text-sm font-medium hover:text-brand-500 transition-colors">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-brand-900 focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100">
+            <nav class="flex flex-col py-4 px-6 space-y-4">
+                <a href="#home" class="mobile-link text-lg font-medium text-gray-800">Home</a>
+                <a href="#about" class="mobile-link text-lg font-medium text-gray-800">About Us</a>
+                <a href="#gallery" class="mobile-link text-lg font-medium text-gray-800">Gallery</a>
+                <a href="#contact" class="mobile-link text-lg font-medium text-gray-800">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center pt-20">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1920"
+                alt="Luxury Living Room" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <span
+                class="block text-brand-500 font-medium tracking-widest uppercase mb-4 text-sm md:text-base drop-shadow-md">Welcome
+                to M2 Interior</span>
+            <h1
+                class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                Crafting Spaces <br /> That Inspire
+            </h1>
+            <p class="text-gray-200 text-lg md:text-xl max-w-2xl mx-auto mb-10 drop-shadow-md">
+                We design elegant, functional, and timeless interiors tailored to your lifestyle.
+            </p>
+            <a href="#contact"
+                class="inline-block bg-brand-500 text-white px-8 py-4 rounded hover:bg-brand-800 transition-colors duration-300 font-medium text-sm tracking-wide">
+                GET A FREE CONSULTATION
+            </a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Text Content -->
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-6">About M2 Interior</h2>
+                    <div class="w-16 h-1 bg-brand-500 mb-8"></div>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        At M2 Interior, we believe that your home should be a reflection of your personality and a
+                        sanctuary for your soul. With years of experience in high-end residential and commercial
+                        interior design, our team brings creativity, precision, and passion to every project.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        From conceptualization to the final styling, we handle every detail. Whether you are looking to
+                        renovate a single room or build your dream home from scratch, we ensure a seamless and luxurious
+                        experience.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <h4 class="text-4xl font-serif font-bold text-brand-500 mb-2">150+</h4>
+                            <p class="text-sm text-gray-500 uppercase tracking-wider">Projects Completed</p>
+                        </div>
+                        <div>
+                            <h4 class="text-4xl font-serif font-bold text-brand-500 mb-2">10+</h4>
+                            <p class="text-sm text-gray-500 uppercase tracking-wider">Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Images Grid -->
+                <div class="lg:w-1/2 grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=800"
+                        alt="Modern Kitchen"
+                        class="w-full h-64 object-cover rounded-tl-3xl rounded-br-3xl shadow-lg mt-8" />
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800"
+                        alt="Cozy Bedroom" class="w-full h-64 object-cover rounded-tr-3xl rounded-bl-3xl shadow-lg" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Slider Section -->
+    <section id="gallery" class="py-24 bg-brand-50 overflow-hidden">
+        <div class="container mx-auto px-6 mb-12 text-center">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-4">Our Portfolio</h2>
+            <div class="w-16 h-1 bg-brand-500 mx-auto mb-6"></div>
+            <p class="text-gray-600 max-w-2xl mx-auto">Explore some of our most recent and stunning interior
+                transformations.</p>
+        </div>
+
+        <div class="container mx-auto px-6 relative">
+            <!-- Slider -->
+            <div class="slider-container rounded-2xl shadow-2xl relative">
+                <div class="slider-track" id="sliderTrack">
+                    <!-- Slide 1 -->
+                    <div class="slide relative h-[500px] md:h-[600px]">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1200"
+                            alt="Living Room Design" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-8">
+                            <h3 class="text-white text-2xl font-serif">Contemporary Living Room</h3>
+                            <p class="text-gray-300">Mumbai, India</p>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="slide relative h-[500px] md:h-[600px]">
+                        <img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&q=80&w=1200"
+                            alt="Modern Bathroom" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-8">
+                            <h3 class="text-white text-2xl font-serif">Minimalist Bathroom</h3>
+                            <p class="text-gray-300">Delhi, India</p>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="slide relative h-[500px] md:h-[600px]">
+                        <img src="https://images.unsplash.com/photo-1616137466211-f939a420be84?auto=format&fit=crop&q=80&w=1200"
+                            alt="Luxury Bedroom" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-8">
+                            <h3 class="text-white text-2xl font-serif">Master Suite</h3>
+                            <p class="text-gray-300">Bangalore, India</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Navigation Buttons -->
+                <button id="prevBtn"
+                    class="absolute top-1/2 left-4 -translate-y-1/2 bg-white/80 hover:bg-white text-brand-900 p-3 rounded-full shadow-lg backdrop-blur-sm transition-all focus:outline-none z-10">
+                    <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                </button>
+                <button id="nextBtn"
+                    class="absolute top-1/2 right-4 -translate-y-1/2 bg-white/80 hover:bg-white text-brand-900 p-3 rounded-full shadow-lg backdrop-blur-sm transition-all focus:outline-none z-10">
+                    <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                </button>
+
+                <!-- Dots -->
+                <div class="absolute bottom-4 right-8 flex space-x-2 z-10" id="sliderDots">
+                    <button class="w-3 h-3 rounded-full bg-white dot-active transition-all focus:outline-none"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/50 transition-all focus:outline-none"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/50 transition-all focus:outline-none"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-white relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-16">
+                <!-- Contact Info -->
+                <div class="lg:w-1/3">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-brand-900 mb-6">Get In Touch</h2>
+                    <div class="w-16 h-1 bg-brand-500 mb-8"></div>
+                    <p class="text-gray-600 mb-8">Ready to start your interior design journey? Contact us today to
+                        schedule your initial consultation.</p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-brand-50 p-3 rounded-full text-brand-500 mr-4">
+                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-brand-900">Our Studio</h4>
+                                <p class="text-gray-600 text-sm mt-1">shree krishna Encalave colony,shop no
+                                    5,Hoshangabad road,<br>Bhopal, MP 462026, India</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-brand-50 p-3 rounded-full text-brand-500 mr-4">
+                                <i data-lucide="mail" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-brand-900">Email Us</h4>
+                                <a href="mailto:kritikad786@gmail.com"
+                                    class="text-gray-600 text-sm mt-1 hover:text-brand-500 transition-colors">kritikad786@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-brand-50 p-3 rounded-full text-brand-500 mr-4">
+                                <i data-lucide="phone" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-brand-900">Call Us</h4>
+                                <a href="tel:+917999773923"
+                                    class="text-gray-600 text-sm mt-1 hover:text-brand-500 transition-colors">+91
+                                    7999773923</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:w-2/3 bg-brand-50 p-8 md:p-12 rounded-2xl">
+                    <form
+                        onsubmit="event.preventDefault(); alert('Thank you for your message! We will get back to you soon.');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2" for="name">Full Name</label>
+                                <input type="text" id="name"
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all"
+                                    placeholder="shivraj vishwakarma" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2" for="email">Email
+                                    Address</label>
+                                <input type="email" id="email"
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all"
+                                    placeholder="hello.m2interior.com" required>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2" for="service">Interested
+                                Service</label>
+                            <select id="service"
+                                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all bg-white">
+                                <option>Full Home Interior</option>
+                                <option>Modular Kitchen</option>
+                                <option>Wardrobes & Storage</option>
+                                <option>Living Room Design</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2" for="message">Message</label>
+                            <textarea id="message" rows="4"
+                                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all resize-none"
+                                placeholder="Tell us about your project..." required></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-brand-900 text-white font-medium py-4 rounded-lg hover:bg-brand-500 transition-colors duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Call & WhatsApp Buttons -->
+    <footer class="bg-brand-900 text-white pt-16 pb-8 border-t-[10px] border-brand-500">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="col-span-1 lg:col-span-2">
+                    <a href="#" class="text-3xl font-serif font-bold text-white tracking-wider block mb-4">
+                        M2<span class="text-brand-500">.</span>INTERIOR
+                    </a>
+                    <p class="text-gray-400 max-w-sm mb-6 leading-relaxed">
+                        Transforming houses into dream homes with premium, customized interior design solutions tailored
+                        just for you.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-500 transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-500 transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-500 transition-colors">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-lg font-serif font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-white transition-colors">Gallery
+                                Portfolio</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Actions -->
+                <div>
+                    <h4 class="text-lg font-serif font-semibold mb-6">Reach Out Now</h4>
+                    <p class="text-gray-400 mb-6">We are just a click away.</p>
+
+                    <!-- Footer Action Buttons -->
+                    <div class="flex flex-col space-y-3">
+                        <!-- Call Button -->
+                        <a href="tel:+917999773923"
+                            class="flex items-center justify-center gap-2 bg-white text-brand-900 py-3 px-4 rounded-lg font-medium hover:bg-gray-100 transition-colors shadow-sm">
+                            <i data-lucide="phone-call" class="w-5 h-5 text-brand-500"></i>
+                            Call Now: +91 7999773923
+                        </a>
+                        <!-- WhatsApp Button -->
+                        <a href="https://wa.me/919098747717?text=Hi%20M2%20Interior,%20I%20am%20interested%20in%20your%20services."
+                            target="_blank"
+                            class="flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 px-4 rounded-lg font-medium hover:bg-[#20bd5a] transition-colors shadow-sm">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            WhatsApp Us
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2026 M2 Interior. All Rights Reserved.</p>
+                <p class="mt-2 md:mt-0">Designed with passion.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Icon for Mobile/Desktop Convenience -->
+    <a href="https://wa.me/9098747717?text=Hi%20M2%20Interior" target="_blank"
+        class="floating-action-btn fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+        <i data-lucide="message-circle" class="w-7 h-7"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // --- Mobile Menu Logic ---
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        btn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                menu.classList.remove('hidden');
+                btn.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
+            } else {
+                menu.classList.add('hidden');
+                btn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+            }
+            lucide.createIcons();
+        });
+
+        // Close mobile menu on link click
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                isMenuOpen = false;
+                btn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+                lucide.createIcons();
+            });
+        });
+
+        // --- Navbar Scroll Effect ---
+        const navbarBg = document.getElementById('nav-bg');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbarBg.classList.add('bg-white/90', 'shadow-md');
+                navbarBg.classList.remove('bg-transparent');
+            } else {
+                navbarBg.classList.remove('bg-white/90', 'shadow-md');
+                navbarBg.classList.add('bg-transparent');
+            }
+        });
+
+        // Trigger initial scroll check
+        window.dispatchEvent(new Event('scroll'));
+
+        // --- Gallery Slider Logic ---
+        const track = document.getElementById('sliderTrack');
+        const slides = Array.from(document.querySelectorAll('.slide'));
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const dots = Array.from(document.getElementById('sliderDots').children);
+
+        let currentIndex = 0;
+
+        function updateSlider(index) {
+            // Update Track Position
+            track.style.transform = `translateX(-${index * 100}%)`;
+
+            // Update Dots
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-white/50');
+                    dot.classList.add('bg-white');
+                } else {
+                    dot.classList.add('bg-white/50');
+                    dot.classList.remove('bg-white');
+                }
+            });
+
+            currentIndex = index;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            let newIndex = (currentIndex + 1) % slides.length;
+            updateSlider(newIndex);
+        });
+
+        prevBtn.addEventListener('click', () => {
+            let newIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlider(newIndex);
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => updateSlider(index));
+        });
+
+        // Auto slide every 5 seconds
+        setInterval(() => {
+            let newIndex = (currentIndex + 1) % slides.length;
+            updateSlider(newIndex);
+        }, 5000);
+
+    </script>
+</body>
+
+</html>
